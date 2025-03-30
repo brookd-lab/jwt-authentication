@@ -5,8 +5,8 @@ import "../App.css";
 import Alert from 'react-bootstrap/Alert';
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("brookd2022@gmail.com");
+    const [password, setPassword] = useState("Aardvark1!");
     const [errorMessage, setErrorMessage] = React.useState("");
 
     const navigate = useNavigate();
@@ -16,6 +16,7 @@ const Login = () => {
         try {
             await AuthService.login(email, password).then(
                 () => {
+                    console.log("Logging in...");
                     navigate("/private");
                     window.location.reload();
                 },

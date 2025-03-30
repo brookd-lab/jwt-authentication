@@ -1,17 +1,17 @@
 import axios from "axios";
 
-const baseURL = "https://localhost:5001";
+const baseURL = "https://localhost:7095";
 
 const API_URL = "/api/auth";
 
 const login = (email, password) => {
   return axios
     .post(baseURL + API_URL + "/login", {
-      email,
+      username: email,
       password,
     })
     .then((response) => {
-      if (response.data.accessToken) {
+      if (response.data.jwtToken) {
         localStorage.setItem("user", JSON.stringify(response.data));
         console.log(response.data)
       }
